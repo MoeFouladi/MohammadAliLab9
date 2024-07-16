@@ -1,4 +1,4 @@
-package mohammadali.fouladi.n01547173;
+package mohammadali.fouladi.mf;
 
 import org.junit.Test;
 
