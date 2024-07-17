@@ -25,4 +25,15 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="no_data_to_delete">No data to delete.</string>
+    <string name="foul2i">Foul2i</string>
+    <string name="file_name">File Name</string>
+    <string name="cache_file">Cache File</string>
+    <string name="persistent_file">Persistent File</string>
+    <string name="create_file">Create File</string>
+    <string name="delete_file">Delete File</string>
+    <string name="file_contents">File Contents</string>
+    <string name="write_file">Write File</string>
+    <string name="read_file">Read File</string>
+    <string name="file">file name</string>
+    <string name="files">files</string>
 </resources><!-- MohammadAli Fouladi N01547173-->

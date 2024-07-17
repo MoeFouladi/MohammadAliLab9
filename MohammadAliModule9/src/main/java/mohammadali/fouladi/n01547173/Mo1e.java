@@ -170,7 +170,7 @@ public class Mo1e extends Fragment {
     }
     private void delete() {
         // method for deleting the data from array list.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_courses", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (courseModalArrayList.size() > 0) {
             courseModalArrayList.remove(courseModalArrayList.size() - 1);

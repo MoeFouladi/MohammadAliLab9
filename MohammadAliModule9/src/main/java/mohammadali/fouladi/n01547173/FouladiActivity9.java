@@ -48,7 +48,7 @@ public class FouladiActivity9 extends AppCompatActivity implements NavigationVie
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mo1e()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
+            navigationView.setCheckedItem(R.id.Mo1e);
         }
         SharedPreferences sharedPreferences = this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         boolean isDarkMode = sharedPreferences.getBoolean(PREF_DARK_MODE, false);
@@ -114,8 +114,11 @@ public class FouladiActivity9 extends AppCompatActivity implements NavigationVie
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mo1e()).commit();
+                if (item.getItemId() == R.id.Mo1e){
+                       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Mo1e()).commit();}
+                else if (item.getItemId() == R.id.Foula2i){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Foula2i()).commit();
+                }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
