@@ -46,6 +46,7 @@ public class Foula2i extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String SHARED_FILES = "shared_files";
 
 
     // TODO: Rename and change types of parameters
@@ -155,8 +156,16 @@ public class Foula2i extends Fragment {
         File directory = isPersistent ? context.getFilesDir() : context.getCacheDir();
         File[] files = directory.listFiles();
         if (files != null && files.length > 3) {
+            // Find and delete the oldest file
             File oldestFile = files[0];
+            for (File file : files) {
+                if (file.lastModified() < oldestFile.lastModified()) {
+                    oldestFile = file;
+                }
+            }
             oldestFile.delete();
+
+            // Remove the oldest file from the list
             for (int i = 0; i < fileArrayList.size(); i++) {
                 if (fileArrayList.get(i).getFileName().equals(oldestFile.getName())) {
                     fileArrayList.remove(i);
@@ -282,7 +291,7 @@ public class Foula2i extends Fragment {
         // method to load arraylist from shared prefs
         // initializing our shared prefs with name as
         // shared preferences.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_files", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_FILES, MODE_PRIVATE);
 
         // creating a variable for gson.
         Gson gson = new Gson();
@@ -322,7 +331,7 @@ public class Foula2i extends Fragment {
         // method for saving the data in array list.
         // creating a variable for storing data in
         // shared preferences.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_files", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_FILES, MODE_PRIVATE);
 
         // creating a variable for editor to
         // store data in shared preferences.
