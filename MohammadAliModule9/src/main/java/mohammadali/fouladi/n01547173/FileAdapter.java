@@ -33,8 +33,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull FileAdapter.ViewHolder holder, int position) {
         // setting data to our views of recycler view.
-        FileModal Fm = fileArrayList.get(position);
-        holder.fileName.setText(Fm.getFileName());
+
+
+            FileModal Fm = fileArrayList.get(position);
+            holder.fileName.setText(Fm.getFileName());
+
 
     }
 
@@ -42,6 +45,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
     public int getItemCount() {
         // returning the size of array list.
         return fileArrayList.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

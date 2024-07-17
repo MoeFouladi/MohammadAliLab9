@@ -36,4 +36,8 @@
     <string name="read_file">Read File</string>
     <string name="file">file name</string>
     <string name="files">files</string>
+    <string name="moe">Moe</string>
+    <string name="file_name_missing">File name missing</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="content_missing">Content Missing</string>
 </resources><!-- MohammadAli Fouladi N01547173-->

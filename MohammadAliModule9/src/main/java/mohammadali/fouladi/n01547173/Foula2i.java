@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,6 +33,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,7 +46,6 @@ public class Foula2i extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private final int MAX_FILES = 3;
 
 
     // TODO: Rename and change types of parameters
@@ -56,6 +57,8 @@ public class Foula2i extends Fragment {
     private RecyclerView fileRV;
     private FileAdapter adapter;
     private ArrayList<FileModal> fileArrayList;;
+    private Snackbar snackbar;
+
 
     public Foula2i() {
         // Required empty public constructor
@@ -104,6 +107,9 @@ public class Foula2i extends Fragment {
         view.findViewById(R.id.activity_internalstorage_create).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkEmpty(fileName.getText().toString())) {
+                    return;
+                }
                 createFile(getContext(), fileType.isChecked());
 
 
@@ -113,6 +119,9 @@ public class Foula2i extends Fragment {
         view.findViewById(R.id.activity_internalstorage_delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkEmpty(fileName.getText().toString())) {
+                    return;
+                }
                 deleteFile(getContext(), fileType.isChecked());
             }
         });
@@ -120,6 +129,12 @@ public class Foula2i extends Fragment {
         view.findViewById(R.id.activity_internalstorage_write).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkEmpty(fileName.getText().toString())) {
+                    return;
+                }
+                if(checkEmpty(fileContents.getText().toString())){
+                    Toast.makeText(getContext(), getString(R.string.moe)+"  "+getString(R.string.content_missing), Toast.LENGTH_LONG).show();
+                }
                 writeFile(getContext(), fileType.isChecked());
             }
         });
@@ -127,13 +142,35 @@ public class Foula2i extends Fragment {
         view.findViewById(R.id.activity_internalstorage_read).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (checkEmpty(fileName.getText().toString())) {
+                    return;
+                }
                 readFile(getContext(), fileType.isChecked());
             }
         });
         return view;
     }
+    private void replaceFile(Context context, boolean isPersistent) {
+
+        File directory = isPersistent ? context.getFilesDir() : context.getCacheDir();
+        File[] files = directory.listFiles();
+        if (files != null && files.length > 3) {
+            File oldestFile = files[0];
+            oldestFile.delete();
+            for (int i = 0; i < fileArrayList.size(); i++) {
+                if (fileArrayList.get(i).getFileName().equals(oldestFile.getName())) {
+                    fileArrayList.remove(i);
+                    adapter.notifyItemRemoved(i);
+                    saveData();
+                    break;
+                }
+            }
+        }
+
+    }
     private void createFile(Context context, boolean isPersistent) {
         File file;
+
         if (isPersistent) {
             file = new File(context.getFilesDir(), fileName.getText().toString());
         } else {
@@ -142,11 +179,19 @@ public class Foula2i extends Fragment {
 
         if (!file.exists()) {
             try {
+
                 file.createNewFile();
+
                 Toast.makeText(context, String.format("File %s has been created", fileName.getText().toString()), Toast.LENGTH_SHORT).show();
                 fileArrayList.add(new FileModal(fileName.getText().toString()));
                 // notifying adapter when new data added.
                 adapter.notifyItemInserted(fileArrayList.size());
+
+                replaceFile(context, isPersistent);
+                saveData();
+
+
+
             } catch (IOException e) {
                 Toast.makeText(context, String.format("File %s creation failed", fileName.getText().toString()), Toast.LENGTH_SHORT).show();
             }
@@ -156,6 +201,7 @@ public class Foula2i extends Fragment {
     }
 
     private void writeFile(Context context, boolean isPersistent) {
+
         try {
             FileOutputStream fileOutputStream;
             if (isPersistent) {
@@ -166,10 +212,8 @@ public class Foula2i extends Fragment {
             }
             fileOutputStream.write(fileContents.getText().toString().getBytes(Charset.forName("UTF-8")));
             Toast.makeText(context, String.format("Write to %s successful", fileName.getText().toString()), Toast.LENGTH_SHORT).show();
-            fileArrayList.add(new FileModal(fileName.getText().toString()));
-            // notifying adapter when new data added.
-            adapter.notifyItemInserted(fileArrayList.size());
-            saveData();
+
+            fileContents.setText("");
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(context, String.format("Write to file %s failed", fileName.getText().toString()), Toast.LENGTH_SHORT).show();
@@ -177,6 +221,7 @@ public class Foula2i extends Fragment {
     }
 
     private void readFile(Context context, boolean isPersistent) {
+
         try {
             FileInputStream fileInputStream;
             if (isPersistent) {
@@ -203,8 +248,8 @@ public class Foula2i extends Fragment {
 
         }
     }
-
     private void deleteFile(Context context, boolean isPersistent) {
+
         File file;
         if (isPersistent) {
             file = new File(context.getFilesDir(), fileName.getText().toString());
@@ -237,7 +282,7 @@ public class Foula2i extends Fragment {
         // method to load arraylist from shared prefs
         // initializing our shared prefs with name as
         // shared preferences.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_files", MODE_PRIVATE);
 
         // creating a variable for gson.
         Gson gson = new Gson();
@@ -259,21 +304,19 @@ public class Foula2i extends Fragment {
             // creating a new array list.
             fileArrayList = new ArrayList<>();
         }
+
     }
     private void delete() {
-        // method for deleting the data from array list.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_files", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (fileArrayList.size() > 0) {
-            fileArrayList.remove(fileArrayList.size() - 1);
-            // Notifying adapter that an item is removed.
-            adapter.notifyItemRemoved(fileArrayList.size());
-            // Save updated list to SharedPreferences.
-            saveData();
-        }
-        else{
-            Toast.makeText(getContext(), R.string.no_data_to_delete , Toast.LENGTH_SHORT).show();}
+        String fileNameToDelete = fileName.getText().toString();
+        for (int i = 0; i < fileArrayList.size(); i++) {
+            if (fileArrayList.get(i).getFileName().equals(fileNameToDelete)) {
+                fileArrayList.remove(i);
+                adapter.notifyItemRemoved(i);
+                saveData();
+                return;
+            }
 
+        }
     }
     private void saveData() {
         // method for saving the data in array list.
@@ -302,4 +345,19 @@ public class Foula2i extends Fragment {
         // after saving data we are displaying a toast message.
 
     }
+    boolean checkEmpty(String fileName){
+        if (Objects.equals(fileName, ""))
+        {
+            snackbar = Snackbar.make(getView(), getString(R.string.moe)+"  "+getString(R.string.file_name_missing) , Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.dismiss, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            })        .show();
+        return true;
+            }
+        else {
+            return false;
+    }
+}
 }
