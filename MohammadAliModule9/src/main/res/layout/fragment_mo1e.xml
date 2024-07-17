@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Mo1e">
+
+    <!--edit text for adding course name-->
+    <EditText
+        android:id="@+id/MoeCourseedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/MoeSave"
+        android:layout_toLeftOf="@id/MoeSave"
+        android:hint="@string/enter_course_name" />
+
+    <!--edit text for adding course description-->
+    <EditText
+        android:id="@+id/MoeDescriptionedit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MoeCourseedit"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@id/MoeAdd"
+        android:hint="@string/enter_course_description" />
+
+    <!--button for adding data to recycler view-->
+    <Button
+        android:id="@+id/MoeAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MoeCourseedit"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:text="@string/add" />
+
+    <!--button for saving data to shared prefs-->
+    <Button
+        android:id="@+id/MoeSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:text="@string/save" />
+    <Button
+        android:id="@+id/MoeDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MoeDescriptionedit"
+        android:text="@string/delete" />
+
+    <!--recycler view to display our data-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVCourses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/MoeDescriptionedit" />
+
+</RelativeLayout>

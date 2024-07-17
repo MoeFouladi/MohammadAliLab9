@@ -14,4 +14,15 @@
     <string name="search">FOU</string>
     <string name="hello">Hello</string>
     <string name="Search">Search</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_description">Course Description</string>
+    <string name="shared_preferences">shared preferences</string>
+    <string name="saved">"Saved Array List to Shared preferences. "</string>
+    <string name="enter_course_name">Enter course Name</string>
+    <string name="courses">courses</string>
+    <string name="enter_course_description">Enter Course Description</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="no_data_to_delete">No data to delete.</string>
 </resources><!-- MohammadAli Fouladi N01547173-->
