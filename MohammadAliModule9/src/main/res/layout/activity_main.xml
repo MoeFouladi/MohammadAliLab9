@@ -37,6 +37,8 @@
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         android:layout_gravity="start"
+        app:itemIconTint="@color/red"
+        app:itemTextColor="@color/red"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         />

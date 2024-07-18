@@ -8,6 +8,8 @@
     android:layout_height="176dp"
     android:gravity="bottom"
     android:padding="16dp"
+    app:itemIconTint="@color/red"
+
     android:background="@drawable/headerbkg">
     <ImageView
         android:layout_width="wrap_content"

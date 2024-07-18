@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    app:itemIconTint="@color/red"
+
+
+    >
 
 
 
         <item
+
             android:id="@+id/Mo1e"
             android:icon="@drawable/mo1e"
-            app:itemIconTint="@color/red"
-
             android:title="@string/home"
             android:color="@color/red"
             />
