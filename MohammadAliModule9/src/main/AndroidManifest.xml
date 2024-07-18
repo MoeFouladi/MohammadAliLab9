@@ -23,10 +23,9 @@
         </activity>
         <activity
             android:name=".FouladiActivity9"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:configChanges="uiMode"
 
-        android:exported="true">
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

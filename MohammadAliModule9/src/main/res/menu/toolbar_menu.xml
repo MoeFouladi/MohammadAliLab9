@@ -15,6 +15,7 @@
             <item
                 android:id="@+id/action_search"
                 android:icon="@drawable/search"
+                android:
 
                 android:title="@string/search"/>
         </menu>
