@@ -1,7 +1,7 @@
 package mohammadali.fouladi.n01547173;
 
 public class CourseModal {
-
+// MohammadAli Fouladi N01547173
     // variables for our course
     // name and description.
     private String courseName;

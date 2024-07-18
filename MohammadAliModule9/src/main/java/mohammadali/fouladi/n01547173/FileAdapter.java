@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+ // MohammadAli Fouladi N01547173
 public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
 
     // creating a variable for array list and context.

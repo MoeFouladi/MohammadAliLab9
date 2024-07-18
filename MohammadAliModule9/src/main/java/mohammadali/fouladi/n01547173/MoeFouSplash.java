@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+// MohammadAli Fouladi N01547173
 
 public class MoeFouSplash extends AppCompatActivity {
     @Override

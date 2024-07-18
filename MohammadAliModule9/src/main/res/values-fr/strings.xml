@@ -1,0 +1,44 @@
+<resources>
+    <!--MohammadAli Fouladi N01547173-->
+    <string name="app_name">MohammadAliLab9</string>
+    <string name="By">Par:MohammadAliN01547173</string>
+    <string name="home">Accueil</string>
+    <string name="Fullname">MohammadAliFouladi</string>
+    <string name="Humber">N01547173@humber.ca</string>
+    <string name="open_nav">Ouvrir le tiroir de navigation</string>
+    <string name="close_nav">Fermer le tiroir de navigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="options">OPTIONS</string>
+    <string name="toggle_mode">MOE</string>
+    <string name="search">FOU</string>
+    <string name="hello">Bonjour</string>
+    <string name="Search">Rechercher</string>
+    <string name="course_name">Nom du cours</string>
+    <string name="course_description">Description du cours</string>
+    <string name="shared_preferences">préférences partagées</string>
+    <string name="saved">"Liste enregistrée dans les préférences partagées. "</string>
+    <string name="enter_course_name">Entrez le nom du cours</string>
+    <string name="courses">cours</string>
+    <string name="enter_course_description">Entrez la description du cours</string>
+    <string name="add">Ajouter</string>
+    <string name="save">Enregistrer</string>
+    <string name="delete">Supprimer</string>
+    <string name="no_data_to_delete">Aucune donnée à supprimer.</string>
+    <string name="foul2i">Foul2i</string>
+    <string name="file_name">Nom du fichier</string>
+    <string name="cache_file">Fichier de cache</string>
+    <string name="persistent_file">Fichier persistant</string>
+    <string name="create_file">Créer un fichier</string>
+    <string name="delete_file">Supprimer le fichier</string>
+    <string name="file_contents">Contenu du fichier</string>
+    <string name="write_file">Écrire le fichier</string>
+    <string name="read_file">Lire le fichier</string>
+    <string name="file">nom du fichier</string>
+    <string name="files">fichiers</string>
+    <string name="moe">Moe</string>
+    <string name="file_name_missing">Nom du fichier manquant</string>
+    <string name="dismiss">Rejeter</string>
+    <string name="content_missing">Contenu manquant</string>
+</resources>
+    <!-- MohammadAli Fouladi N01547173-->

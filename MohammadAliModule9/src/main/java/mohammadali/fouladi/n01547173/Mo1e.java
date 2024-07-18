@@ -24,6 +24,7 @@ import android.widget.Toast;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+// MohammadAli Fouladi N01547173
 
 /**
  * A simple {@link Fragment} subclass.

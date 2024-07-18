@@ -27,6 +27,7 @@ import android.widget.EditText;
 import com.google.android.material.navigation.NavigationView;
 
 public class FouladiActivity9 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+// MohammadAli Fouladi N01547173
 
     private DrawerLayout drawerLayout;
     private static final String PREFS_NAME = "prefs";

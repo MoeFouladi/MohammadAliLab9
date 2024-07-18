@@ -34,6 +34,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+// MohammadAli Fouladi N01547173
 
 /**
  * A simple {@link Fragment} subclass.
