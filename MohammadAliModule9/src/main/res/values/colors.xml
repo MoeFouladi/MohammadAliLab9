@@ -20,6 +20,7 @@
     <color name="colorSecondary">#03DAC6</color>
     <color name="colorSecondaryVariant">#03DAC6</color>
     <color name="colorOnSecondary">#000000</color>
+    <color name="dark_background">#220055</color>
 
 </resources>
     <!-- MohammadAli Fouladi N01547173-->

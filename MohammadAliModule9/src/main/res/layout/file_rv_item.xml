@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="@string/file"
-            android:textColor="@color/lavender"
+            android:textColor="@color/red"
             android:textSize="20sp"
             android:textStyle="bold|italic"/>
 

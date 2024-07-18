@@ -12,8 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/MoeSave"
+
         android:layout_toLeftOf="@id/MoeSave"
-        android:hint="@string/enter_course_name" />
+        android:hint="@string/enter_course_name"
+        android:textColorHint="@color/red"/>
+
 
     <!--edit text for adding course description-->
     <EditText
@@ -24,7 +27,8 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_toLeftOf="@id/MoeAdd"
-        android:hint="@string/enter_course_description" />
+        android:hint="@string/enter_course_description"
+        android:textColorHint="@color/red"/>
 
     <!--button for adding data to recycler view-->
     <Button
@@ -32,6 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/MoeCourseedit"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryVariant"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
@@ -43,6 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryVariant"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
         android:text="@string/save" />
@@ -51,6 +59,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/MoeDescriptionedit"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryVariant"
         android:text="@string/delete" />
 
     <!--recycler view to display our data-->

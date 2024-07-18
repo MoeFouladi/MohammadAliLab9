@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn = "navigation_view">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
 
 
 
         <item
             android:id="@+id/Mo1e"
             android:icon="@drawable/mo1e"
+            app:itemIconTint="@color/red"
+
             android:title="@string/home"/>
 
         <item
             android:id="@+id/Foula2i"
             android:icon="@drawable/foula2i"
+            android:textColor="@color/red"
+
             android:title="@string/foul2i"/>
 
 

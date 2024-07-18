@@ -91,10 +91,10 @@ public class FouladiActivity9 extends AppCompatActivity implements NavigationVie
             editor.putBoolean(PREF_DARK_MODE, !isDarkMode);
             editor.apply();
             if (!isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);}
+            setTheme(R.style.Theme_NavigationDrawerDark);}
             else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);}
-
+setTheme(R.style.Theme_NavigationDrawer);}
+recreate();
 
 
 
