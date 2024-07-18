@@ -112,7 +112,7 @@ public class Foula2i extends Fragment {
                 if (checkEmpty(fileName.getText().toString())) {
                     return;
                 }
-                createFile(getContext(), fileType.isChecked());
+                replaceFile(getContext(), fileType.isChecked());
 
 
             }
@@ -174,8 +174,8 @@ public class Foula2i extends Fragment {
                     saveData();
                     break;
                 }
-            }
-        }
+            }}
+        else{ createFile(context, isPersistent);}
 
     }
     private void createFile(Context context, boolean isPersistent) {
@@ -196,8 +196,8 @@ public class Foula2i extends Fragment {
                 fileArrayList.add(new FileModal(fileName.getText().toString()));
                 // notifying adapter when new data added.
                 adapter.notifyItemInserted(fileArrayList.size());
-
                 replaceFile(context, isPersistent);
+
                 saveData();
 
 
