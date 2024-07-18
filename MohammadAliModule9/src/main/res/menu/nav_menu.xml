@@ -11,12 +11,15 @@
             android:icon="@drawable/mo1e"
             app:itemIconTint="@color/red"
 
-            android:title="@string/home"/>
+            android:title="@string/home"
+            android:color="@color/red"
+            />
 
         <item
             android:id="@+id/Foula2i"
             android:icon="@drawable/foula2i"
-            android:textColor="@color/red"
+            android:color="@color/red"
+
 
             android:title="@string/foul2i"/>
 
