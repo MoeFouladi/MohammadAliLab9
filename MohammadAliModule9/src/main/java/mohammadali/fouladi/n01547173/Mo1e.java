@@ -181,7 +181,6 @@ public class Mo1e extends Fragment {
                 // Notifying adapter that an item is removed.
                 adapter.notifyItemRemoved(courseModalArrayList.size());
                 // Save updated list to SharedPreferences.
-
             }
             saveData();
         }
