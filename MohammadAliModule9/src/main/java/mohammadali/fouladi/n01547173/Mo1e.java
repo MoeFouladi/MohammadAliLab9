@@ -171,7 +171,7 @@ public class Mo1e extends Fragment {
     }
     private void delete() {
         // method for deleting the data from array list.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared_courses", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
@@ -193,7 +193,7 @@ public class Mo1e extends Fragment {
         // method for saving the data in array list.
         // creating a variable for storing data in
         // shared preferences.
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
 
         // creating a variable for editor to
         // store data in shared preferences.
